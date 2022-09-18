@@ -1,0 +1,26 @@
+[user]
+	name = Sam
+	email = sam.chongt@titansoft.com.sg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential]
+	helper = manager
+[core]
+    editor = vim
+    autocrlf = input
+    eol = lf
+[alias]
+    lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lg = !"git lg1"
+#    rel = !"git push; git push origin master; git push --tags"
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    ps = push
+    ct = "!f() { git checkout --track origin/\"$1\"; }; f"
+    cp = cherry-pick
